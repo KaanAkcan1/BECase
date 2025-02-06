@@ -157,7 +157,7 @@ namespace BECase.Data.Repositories
             return result;
         }
 
-        public async Task<RepositoryResult<T>> DeleteAsync(Guid id, Guid deletedBy, bool hardDelete = false)
+        public async Task<RepositoryResult<T>> DeleteAsync(Guid id, Guid? deletedBy, bool hardDelete = false)
         {
             var model = await Table.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -190,7 +190,7 @@ namespace BECase.Data.Repositories
 
                     model.StatusId = (int)EntityStatus.Deleted;
                     model.ModifiedOn = DateTime.Now;
-                    model.ModifiedBy = deletedBy;
+                    model.ModifiedBy = deletedBy ?? RepositoryDefaults.UserId.System;
 
                     try
                     {
@@ -260,5 +260,6 @@ namespace BECase.Data.Repositories
             return query;
         }
         #endregion
+
     }
 }

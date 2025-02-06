@@ -14,7 +14,7 @@ namespace BECase.Data.Repositories
         Task<RepositoryResult<T>> CreateAsync(T model);
         Task<RepositoryResult<T>> CreateAsync(List<T> datas);
         Task<RepositoryResult<T>> CreateUpdateAsync(T model);
-        Task<RepositoryResult<T>> DeleteAsync(Guid id, Guid deletedBy, bool hardDelete = false);
+        Task<RepositoryResult<T>> DeleteAsync(Guid id, Guid? deletedBy, bool hardDelete = false);
 
         #endregion
 

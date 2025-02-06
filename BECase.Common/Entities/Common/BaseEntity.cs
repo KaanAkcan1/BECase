@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace BECase.Common.Entities.Common
 {
@@ -8,6 +9,7 @@ namespace BECase.Common.Entities.Common
         public Guid Id { get; set; }
         [Column(Order = 202)]
         public int StatusId { get; set; }
+        [JsonPropertyName("recordDate")]
         [Column(Order = 203)]
         public DateTime CreatedOn { get; set; }
         [Column(Order = 205)]
