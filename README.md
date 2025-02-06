@@ -13,8 +13,8 @@ Open `Package Manager Console` and select `***.Data` project from `Default Proje
 # ThirdStep
 
 Enter codes for preparing Db =>
-
+```
 add-migration initial -Context ApplicationDb Context
 updatde-database
-
+```
 Project will be ready for debug or publish
