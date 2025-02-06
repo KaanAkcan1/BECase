@@ -11,6 +11,16 @@ namespace BECase.Data.Mapping
             builder.ToTable("AppUsers");
 
             builder.HasKey(x => x.Id);
+
+            builder.HasOne(a => a.Customer)
+              .WithOne()
+              .HasForeignKey<Customer>(c => c.UserId)
+              .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(c => c.Invoices)
+                   .WithOne()
+                   .HasForeignKey(i => i.UserId)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

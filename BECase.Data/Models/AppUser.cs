@@ -13,6 +13,8 @@ namespace BECase.Data.Models
         public DateTime ModifiedOn { get; set; }
         public Guid CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
+        public Customer? Customer { get; set; }
+        public List<Invoice>? Invoices { get; set; }
 
         public virtual ICollection<JwtRefreshToken> JwtRefreshTokens { get; set; } = null!;
     }

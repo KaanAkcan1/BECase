@@ -8,6 +8,9 @@ namespace BECase.Data.Repositories
     {
         private ApplicationDbContext _context;
         private IAppUserRepository _appUserRepository;
+        private ICustomerRepository _customerRepository;
+        private IInvoiceLineRepository _invoiceLineRepository;
+        private IInvoiceRepository _invoiceRepository;
         private IJwtRefreshTokenRepository _jwtRefreshTokenRepository;
 
         public UnitOfWork(ApplicationDbContext context)
@@ -15,6 +18,9 @@ namespace BECase.Data.Repositories
             _context = context;
         }
         public IAppUserRepository appUserRepository => _appUserRepository ?? new AppUserRepository();
+        public ICustomerRepository customerRepository => _customerRepository ?? new CustomerRepository(_context);
+        public IInvoiceLineRepository invoiceLineRepository => _invoiceLineRepository ?? new InvoiceLineRepository(_context);
+        public IInvoiceRepository invoiceRepository => _invoiceRepository ?? new InvoiceRepository(_context);
         public IJwtRefreshTokenRepository jwtRefreshTokenRepository => _jwtRefreshTokenRepository ?? new JwtRefreshTokenRepository(_context);
 
 

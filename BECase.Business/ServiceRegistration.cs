@@ -25,6 +25,7 @@ namespace BECase.Business
         {
             services
                 .AddTransient<IAppUserService, AppUserService>()
+                .AddTransient<ICustomerService, CustomerService>()
                 .AddScoped<JwtRefreshTokenService, JwtRefreshTokenService>()
                 .AddScoped<IUnitOfWork, UnitOfWork>();
 

@@ -36,6 +36,9 @@ namespace BECase.Data.Context
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.ApplyConfiguration(new AppUserMap());
+            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new InvoiceLineMap());
+            modelBuilder.ApplyConfiguration(new InvoiceMap());
             modelBuilder.ApplyConfiguration(new JwtRefreshTokenMap());
         }
     }
